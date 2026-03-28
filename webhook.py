@@ -29,7 +29,7 @@ async def verify_webhook(request: Request):
 async def handle_webhook(request: Request):
     # Always return 200 immediately so Meta doesn't retry
     body = await request.json()
-    logger.info(f" RAW: {body}")
+    print(f" RAW: {body}")
 
 
     if body.get("object") != "instagram":
