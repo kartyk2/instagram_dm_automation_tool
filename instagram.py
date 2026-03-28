@@ -5,7 +5,7 @@ import httpx
 logger = logging.getLogger(__name__)
 
 API_VERSION = "v21.0"
-GRAPH_URL   = f"https://graph.facebook.com/{API_VERSION}/me/messages"
+GRAPH_URL   = f"https://graph.instagram.com/{API_VERSION}/me/messages"  # ✅ new URL
 
 
 async def send_reply(recipient_id: str, text: str) -> dict:
@@ -26,7 +26,7 @@ async def send_reply(recipient_id: str, text: str) -> dict:
     async with httpx.AsyncClient() as client:
         response = await client.post(
             GRAPH_URL,
-            params={"access_token": token},
+            headers={"Authorization": f"Bearer {token}"},
             json=payload,
             timeout=10.0,
         )
