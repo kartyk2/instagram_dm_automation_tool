@@ -5,7 +5,7 @@ from functools import lru_cache
 
 logger = logging.getLogger(__name__)
 
-API_VERSION = "v21.0"
+API_VERSION = "v25.0"
 
 
 @lru_cache(maxsize=1)
